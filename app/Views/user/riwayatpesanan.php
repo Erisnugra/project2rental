@@ -41,6 +41,7 @@
                     <td class="text-center">
                         <a href="<?= base_url('user/detail_booking/' . $row->id_pesanan) ?>" class="badge bagde-success">Detail</a>
                         <?php if ($row->status == 'Melakukan Pembayaran') { ?>
+                            <a href="<?= base_url('user/bayar/' . $row->id_pesanan) ?>" class="badge " style="background-color: green;">Bayar</a>
                             <a href="<?= base_url('user/batal_pesanan/' . $row->id_pesanan) ?>" class="badge " style="background-color: red;" onclick="return confirm('Yakin ingin membatalkan?')">Batalkan</a>
                         <?php } ?>
                     </td>

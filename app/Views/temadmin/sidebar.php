@@ -49,9 +49,9 @@
 
 
     <li class="nav-item">
-        <a class="nav-link" href="<?= base_url('admin/kategori'); ?>">
-            <i class="fas fa-fw fa-solid fa-money-bill"></i>
-            <span>kategori</span></a>
+        <a class="nav-link" href="<?= base_url('admin/kelolapenyewa'); ?>">
+            <i class="fas fa-users"></i>
+            <span>Kelola Penyewa</span></a>
     </li>
 
     <!-- Heading -->

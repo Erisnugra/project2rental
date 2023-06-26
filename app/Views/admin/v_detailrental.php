@@ -7,7 +7,7 @@
         <div class="col-sm-12">
             <div class="clearfix">
                 <div class="float-left">
-                    <h1 class="h3 mb-4 text-gray-800">Detail pengajuan</h1>
+                    <h1 class="h3 mb-4 text-gray-800">Detail Rental</h1>
                 </div>
                 <!-- <div class="float-right">
 								<a href="" class="btn btn-sm btn-primary"><i class="fa fa-plus"></i> Tambah Data</a>
@@ -76,9 +76,7 @@
 
 
                         <div class="form-group">
-                            <button type="submit" class="btn btn-sm btn-success" name="ubah"><i class="fa fa-pen"></i> Ubah</button>
-                            <button type="reset" class="btn btn-sm btn-danger"><i class="fa fa-times"></i> Batal</button>
-                            <a href="<?= base_url('admin/pengajuan') ?>" class="btn btn-sm btn-secondary"><i class="fa fa-reply"></i> Kembali</a>
+                            <a href="<?= base_url('admin/rental') ?>" class="btn btn-sm btn-secondary"><i class="fa fa-reply"></i> Kembali</a>
                         </div>
                     </form>
                 </div>

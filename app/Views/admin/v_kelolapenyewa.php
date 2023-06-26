@@ -10,7 +10,7 @@
             <div class="col-sm-12">
                 <div class="clearfix">
                     <div class="float-left">
-                        <h1 class="h3 mb-4 text-gray-800">Data Pengajuan</h1>
+                        <h1 class="h3 mb-4 text-gray-800">Kelola Penyewa</h1>
                     </div>
                     <!-- <div class="float-right">
 								<a href="" class="btn btn-sm btn-primary"><i class="fa fa-plus"></i> Tambah Data</a>
@@ -29,7 +29,7 @@
             <div class="col-sm-12">
                 <div class="card shadow">
                     <div class="card-header">
-                        <h6 class="m-0 font-weight-bold text-primary">Daftar Pengajuan</h6>
+                        <h6 class="m-0 font-weight-bold text-primary">Data Penyewa</h6>
                     </div>
                     <?php if (session()->getFlashdata('success')) : ?>
                         <div class="alert alert-success" role="alert">
@@ -45,10 +45,8 @@
                             <thead>
                                 <tr>
                                     <th>No</th>
-                                    <th>Nama Rental</th>
-                                    <th>Nama Pemilik</th>
-                                    <th>Nama Mobil</th>
-                                    <th>Harga</th>
+                                    <th>Nama</th>
+                                    <th>Username</th>
                                     <th>Status</th>
                                     <th>Aksi</th>
 
@@ -60,15 +58,16 @@
                                 foreach ($data as $row) { ?>
                                     <tr>
                                         <td><?= $no++ ?></td>
-                                        <td><?= $row->username ?></td>
                                         <td><?= $row->name ?></td>
-                                        <td><?= $row->nama_mobil ?></td>
-                                        <td><?= $row->harga ?></td>
-                                        <td><?= $row->status == null ? 'Belum Disetujui' : $row->status ?></td>
+                                        <td><?= $row->username ?></td>
+                                        <td><?= $row->status_user ?></td>
                                         <td>
-                                            <a href="<?= base_url('admin/ubahpengajuan/' . $row->id_mobil) ?>" class="btn btn-sm btn-info mb-2"><i class="fa fa-pen"></i> Ubah</a><br>
-                                            <a href="<?= base_url('admin/detailpengajuan/' . $row->id_mobil) ?>" class="btn btn-sm btn-warning mb-2"><i class="fa fa-eye"></i> Detail</a><br>
+                                            <?php if ($row->status_user == 'Aktif') { ?>
+                                                <a href="<?= base_url('admin/nonaktif/' . $row->id_user) ?>" class="btn btn-sm btn-warning mb-2" onclick="return confirm('Yakin ingin menonaktifkan akun penyewa?')"><i class="fa fa-ban"></i> Non Aktif</a><br>
+                                            <?php } else { ?>
+                                                <a href="<?= base_url('admin/aktifkan/' . $row->id_user) ?>" class="btn btn-sm btn-success mb-2" onclick="return confirm('Yakin ingin mengaktifkan akun penyewa?')"><i class="fa fa-check"></i> Aktifkan</a><br>
 
+                                            <?php } ?>
                                         </td>
                                     </tr>
                                 <?php } ?>

@@ -116,7 +116,7 @@ class user extends BaseController
             'tanggal_kembali' => $this->request->getPost('tanggal_kembali'),
             'total_harga'   => $this->request->getPost('total_harga'),
             'status'        => 'Melakukan Pembayaran',
-            'jenis_bayar'   => 'Tunai'
+            'jenis_bayar'   => $this->request->getPost('jenis_bayar')
         ];
         // echo '<pre>';
         // var_dump($pesanan);
@@ -150,10 +150,30 @@ class user extends BaseController
         return view('user/bookingdetail', $data);
     }
 
+    public function bayar($id)
+    {
+        $data = [
+            'title' => 'Bayar Pesanan',
+            'data'  => $this->ModelPesanan
+                ->join('data_mobil', 'data_mobil.id_mobil = data_pesanan.id_mobil')->find($id)
+        ];
+        return view('user/bayarpesanan', $data);
+    }
+
     public function batal_pesanan($id)
     {
         $this->ModelPesanan->update($id, ['status' => 'Pembayaran Dibatalkan']);
         session()->setFlashdata('pesan', 'Berhasil membatalkan pesanan!.');
+        return redirect()->to(base_url('user/riwayat'));
+    }
+
+    public function uploadbukti($id)
+    {
+        $bukti = $this->request->getFile('bukti_pembayaran');
+        $namafoto = $bukti->getRandomName();
+        $bukti->move('bukti_pembayaran', $namafoto);
+        $this->ModelPesanan->update($id, ['status' => 'Pembayaran Selesai', 'bukti_pembayaran' => $namafoto]);
+        session()->setFlashdata('pesan', 'Berhasil Mengupload Bukti Pembayaran!.');
         return redirect()->to(base_url('user/riwayat'));
     }
 }

@@ -10,7 +10,7 @@ class UsersModel extends Model
     protected $primaryKey = "id_user";
     protected $returnType = "object";
     protected $useTimestamps = true;
-    protected $allowedFields = ["username", "password", "name", 'role'];
+    protected $allowedFields = ["username", "password", "name", 'role', 'status_user'];
 
     public function data_user($username, $password)
     {

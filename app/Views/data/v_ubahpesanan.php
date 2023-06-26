@@ -57,17 +57,6 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="total_harga">Status Pemesanan</label>
-                                    <select name="status" id="status" class="form-control">
-                                        <option value="Melakukan Pembayaran" <?= $data->status == 'Melakukan Pembayaran' ? 'selected' : '' ?>>Melakukan Pembayaran</option>
-                                        <option value="Disetujui" <?= $data->status == 'Disetujui' ? 'selected' : '' ?>>Disetujui</option>
-                                        <option value="Pembayaran Ditolak" <?= $data->status == 'Pembayaran Ditolak' ? 'selected' : '' ?>>Pembayaran Ditolak</option>
-                                        <option value="Selesai" <?= $data->status == 'Selesai' ? 'selected' : '' ?>>Selesai</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
                                     <label for="total_harga">Total Harga</label>
                                     <input type="text" value="<?= $data->total_harga; ?>" name="total_harga" required="required" placeholder="ketik" autocomplete="off" class="form-control" readonly>
                                 </div>
@@ -77,6 +66,26 @@
                                     <label for="jenis_bayar">Jenis Bayar</label>
                                     <input type="text" value="<?= $data->jenis_bayar; ?>" name="jenis_bayar" required="required" placeholder="ketik" autocomplete="off" class="form-control" readonly>
                                 </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="total_harga">Status Pemesanan</label>
+                                    <select name="status" id="status" class="form-control">
+                                        <option value="Melakukan Pembayaran" <?= $data->status == 'Melakukan Pembayaran' ? 'selected' : '' ?>>Melakukan Pembayaran</option>
+                                        <option value="Pembayaran Selesai" <?= $data->status == 'Pembayaran Selesai' ? 'selected' : '' ?>>Dibayar</option>
+                                        <option value="Disetujui" <?= $data->status == 'Disetujui' ? 'selected' : '' ?>>Disetujui</option>
+                                        <option value="Pembayaran Ditolak" <?= $data->status == 'Pembayaran Ditolak' ? 'selected' : '' ?>>Pembayaran Ditolak</option>
+                                        <option value="Selesai" <?= $data->status == 'Selesai' ? 'selected' : '' ?>>Selesai</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="jenis_bayar">Bukti Pembayaran : </label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <img src="<?= base_url('bukti_pembayaran/' . $data->bukti_pembayaran) ?>" class="w-100" alt="">
                             </div>
                         </div>
                         <div class="form-group">

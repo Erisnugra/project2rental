@@ -41,6 +41,10 @@
                         <label>Total Biaya Sewa (<?= $dayDiff; ?> Hari)</label><br />
                         <input type="text" class="form-control" name="total" value="<?= $data->total_harga ?>" readonly>
                     </div>
+                    <div class="form-group">
+                        <label>Bukti Pembayaran</label><br />
+                        <img src="<?= base_url('bukti_pembayaran/' . $data->bukti_pembayaran) ?>" width="50%" alt="">
+                    </div>
                     </b>
                     <br /><br />
                     <div class="form-group">

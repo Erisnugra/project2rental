@@ -63,6 +63,14 @@
                         <label>Total Harga</label>
                         <input type="text" class="form-control" name="total_harga" value="<?= $waktu * $data->harga ?>" placeholder="Masukan Kota Tujuan" required readonly>
                     </div>
+                    <div class="form-group">
+                        <label>Metode Pembayaran</label>
+                        <select name="jenis_bayar" id="jenis" class="form-control" required>
+                            <option value="">~ Pilih ~</option>
+                            <option value="Tunai">Tunai</option>
+                            <option value="Transfer">Transfer</option>
+                        </select>
+                    </div>
                     <br />
                     <div class="form-group">
                         <input type="submit" name="submit" value="Cek Ketersediaan" class="btn btn-block">

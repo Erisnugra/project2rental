@@ -36,8 +36,10 @@
                             Status Pembayaran <br>
                             Total Harga <br>
                             Jenis Bayar <br>
+                            Bukti Pembayaran <br>
                         </div>
                         <div class="col-sm-1">
+                            : <br>
                             : <br>
                             : <br>
                             : <br>
@@ -53,20 +55,18 @@
                             <strong><?= $data->status ?></strong><br>
                             <strong><?= $data->total_harga ?></strong><br>
                             <strong><?= $data->jenis_bayar ?></strong><br>
+                            <img src="<?= base_url('bukti_pembayaran/' . $data->bukti_pembayaran) ?>" class="w-100" alt="">
                         </div>
                     </div>
                     <hr>
                     <div class="row">
-                        <div class="col">
-                            <a href="" class="btn btn-sm btn-info"><i class="fa fa-pen"></i> Ubah</a>
-                            <a href="" class="btn btn-sm btn-danger" onclick="return confirm('apakah anda yakin?')"><i class="fa fa-trash"></i> Hapus</a>
-                            <a href="<?= base_url('pesanan') ?>" class="btn btn-sm btn-secondary"><i class="fa fa-reply"></i> Kembali</a>
-                        </div>
+                        <a href="<?= base_url('pesanan') ?>" class="btn btn-sm btn-secondary"><i class="fa fa-reply"></i> Kembali</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
 </div>
 </div>
 

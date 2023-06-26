@@ -40,6 +40,7 @@ class t_datapesanan extends BaseController
         $data = [
             'title' => 'Form Edit Data mobil',
             'data' => $this->model
+                ->select(['data_pesanan.*', 'data_customer.*', 'data_mobil.nama_mobil', 'data_mobil.harga'])
                 ->join('data_customer', 'data_customer.id_customer = data_pesanan.id_customer')
                 ->join('data_mobil', 'data_mobil.id_mobil = data_pesanan.id_mobil')
                 ->find($id_pesanan)

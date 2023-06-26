@@ -69,6 +69,10 @@ class login extends BaseController
             // $cekVerifikasi = $this->AuthModel->cekVerifikasi($username);
 
             if ($data_user) {
+                if ($data_user['status_user'] == 'Non Aktif') {
+                    session()->setFlashdata('pesan', 'Akun anda telah di nonaktifkan.');
+                    return redirect()->to(base_url('Login'));
+                }
                 # code...
                 // if ($cekVerifikasi['status_verifikasi'] == 'Sudah Verifikasi') {
 
